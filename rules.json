@@ -1,0 +1,60 @@
+{
+    "from": [
+        {
+            "condition": "from:=='someonne@email.com' || from:in['someone2@cmail.com','someone@kmail.com'] and from:not['someone3@ymail.com']"
+        },
+        {
+            "predicate" : {
+                "name" : "OR",
+                "operations": [
+                    {
+                        "op": "in",
+                        "value": ["someone@tentools.com", "someone@tentribes.com"]
+                    },
+                    {
+                        "op": "not",
+                        "value":["someone@tenmiles.com"]
+                    },
+                    {
+                        "op": "contains",
+                        "value":["ten"]
+                    }
+                ]
+           }
+        }
+    ],
+    "date": [
+        {
+            "op": "lesser",
+            "value": "2h"
+        },
+        {
+            "op" : "greater",
+            "value" : "2d"
+        },
+        {
+            "op": "lesser",
+            "value": "15m"
+        }
+    ],
+    "subject":[
+        {
+            "op": "equals",
+            "value": "this subject"
+        },
+        {
+            "op": "contains",
+            "value": ["urgent","critical"]
+        }
+    ],
+    "message": [
+        {
+            "op": "contains",
+            "value": ["hello", "hey"]
+        },
+        {
+            "op": "equals",
+            "value": "Welcome"
+        }
+    ]
+}
