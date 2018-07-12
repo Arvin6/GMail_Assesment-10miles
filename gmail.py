@@ -1,6 +1,7 @@
 from apiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
+import dateutil.parser as parser
 
 # Setup the Gmail API
 SCOPES = 'https://www.googleapis.com/auth/gmail.modify'
@@ -39,17 +40,18 @@ class GmailAPI:
             if error:
                 print (error)
                 return
-            message_dict = {
-                'gid': response_dict['id'],
-                'message': response_dict['snippet']
-            }
             payload = response_dict['payload']
             headers = payload['headers']
+            
+            message_dict = {
+                'gid': response_dict['id'],
+                "message": response_dict['snippet']
+            }
             for item in headers:
                 if item['name'] == "Subject":
                     message_dict['subject'] = item['value']
                 if item['name'] == "Date":
-                    message_dict['date'] = item['value']
+                    message_dict['date'] = parser.parse(item['value']).isoformat()
                 if item['name'] == "From":
                     message_dict['sender'] = item['value']
             mail_dicts.append(message_dict)
