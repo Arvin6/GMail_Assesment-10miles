@@ -1,17 +1,10 @@
 [
     {
-            "condition": ["from:equals:someonne@email.com", "||" ,"from:in:['someone2@cmail.com','someone@kmail.com']",
-                                 "&&","from:not:['someone3@ymail.com']", "||", "date:lt:2d" ],
+            "condition": ["message:contains:%swiggy%", "AND", "from:not:Myntra <info@myntra.com>", "AND","from:contains:%Amazon%"],
             "action": {
                 "mark_as_read": true,
                 "mark_as_important": true,
                 "add_labels" : ["Tenmiles"]
             }
-    },
-     {
-         "condition": ["from:in:"],
-         "action": {
-            "add_labels": ["Myntra"]
-         }
-     }   
+    }
 ]
