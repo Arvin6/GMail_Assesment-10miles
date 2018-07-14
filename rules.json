@@ -1,10 +1,10 @@
 [
     {
-            "condition": ["message:contains:%swiggy%", "AND", "from:not:Myntra <info@myntra.com>", "AND","from:contains:%Amazon%"],
+            "condition": ["message:contains:%swiggy%", "AND", "message:contains:%Amazon%"],
             "action": {
                 "mark_as_read": true,
-                "mark_as_important": true,
-                "add_labels" : ["Tenmiles"]
+                "mark_as_important": false,
+                "add_labels" : ["Swiggy", "Amazon"]
             }
     }
 ]
