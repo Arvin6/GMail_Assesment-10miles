@@ -50,11 +50,13 @@ def mark_mails_as_read(message_ids):
     labels = ['UNREAD']
     gmail_handler.remove_labels(message_ids=message_ids, labels=labels)
 
+def mark_mails_as_spam(message_ids):
+    labels = ["SPAM"]
+    gmail_handler.add_labels(message_ids, labels)
 
 def mark_mails_as_important(message_ids):
     labels = ['IMPORTANT']
     gmail_handler.add_labels(message_ids, labels)
-
 
 def add_labels_to_mail(message_ids, labels):
     if not isinstance(labels, list):
