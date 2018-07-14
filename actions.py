@@ -16,6 +16,7 @@ try:
     time.sleep(1)
 except Exception as e:
     print (e)
+    exit()
 
 
 # Get last sync time
@@ -33,7 +34,7 @@ def sync_mails_to_db(last_sync_time):
                                                 .strftime('%Y-%m-%d %H:%M:%S'))
 
         print ("Database is last updated on {}".format(human_readable_time_stamp))
-        
+
     message_dict_list = gmail_handler.get_emails(last_sync_time=last_sync_time)
     for row in db.batch_commit(message_dict_list, 100):
         try:
