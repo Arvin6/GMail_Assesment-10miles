@@ -21,7 +21,7 @@ except Exception as e:
 
 # Get last sync time
 try:
-    sync_results =  Sync.select().order_by(Sync.syncedon.desc()).get() #order_by(Sync.syncedon.desc())
+    sync_results =  Sync.select().order_by(Sync.syncedon.desc()).get()
     last_sync_time = sync_results.syncedon
 except Exception as e:
     last_sync_time = None
