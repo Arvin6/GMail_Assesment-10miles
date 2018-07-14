@@ -1,10 +1,28 @@
 [
     {
-            "condition": ["message:contains:%swiggy%", "AND", "message:contains:%Amazon%"],
-            "action": {
-                "mark_as_read": true,
-                "mark_as_important": false,
-                "add_labels" : ["Swiggy", "Amazon"]
-            }
+        "condition": ["received:lt:30d", "AND", "message:contains:%interview%"],
+        "action": {
+            "labels": ["Interview"]
+        }
+    },
+    {
+        "condition": ["from:contains:%Amazon%", "AND", "received:lt:1h"],
+        "action": {
+            "mark_as_read": true,
+            "mark_as_important": false,
+            "labels" : ["Amazon"]
+        }
+    },
+    {
+        "condition": ["subject:contains:%sale%"],
+        "action": {
+            "labels": ["Sale"]
+        }
+    },
+    {
+        "condition": ["from:contains:%coin%", "or", "subject:contains:%coin%", "or", "message:contains:%coin%"],
+        "action": {
+            "labels": ["Crypto"]
+        }
     }
 ]

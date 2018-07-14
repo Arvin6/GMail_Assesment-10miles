@@ -15,5 +15,10 @@ class Mail(Model):
     class Meta:
         database = db
 
+class Synctimes(Model):
+    syncedon = IntegerField(unique=True)
+    class Meta:
+        database = db
+
 # Create table if not exists
-db.create_tables([Mail,])
+db.create_tables([Mail,Synctimes])
