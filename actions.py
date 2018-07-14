@@ -5,7 +5,7 @@ import time
 
 import peewee
 from gmail import GmailAPI
-from model import Mail, Synctimes, db
+from model import Mail, Sync, db
 
 
 # Initialize google handle
@@ -21,7 +21,7 @@ except Exception as e:
 
 # Get last sync time
 try:
-    sync_results =  Synctimes.select().order_by(Synctimes.syncedon.desc()).get() #order_by(Synctimes.syncedon.desc())
+    sync_results =  Sync.select().order_by(Sync.syncedon.desc()).get() #order_by(Sync.syncedon.desc())
     last_sync_time = sync_results.syncedon
 except Exception as e:
     last_sync_time = None
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
     sync_time = int(time.time())
     try:
-        Synctimes.create(syncedon=sync_time)
+        Sync.create(syncedon=sync_time)
     except Exception as e:
         print (e)
 
