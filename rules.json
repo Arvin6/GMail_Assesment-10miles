@@ -6,6 +6,12 @@
         }
     },
     {
+        "condition": ["received:lt:3d", "AND", "received:gt:2d"],
+        "action": {
+            "labels": ["Recent"]
+        }
+    },
+    {
         "condition": ["from:contains:%Amazon%", "AND", "received:lt:1h"],
         "action": {
             "mark_as_read": true,
