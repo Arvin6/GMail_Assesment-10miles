@@ -24,5 +24,11 @@
         "action": {
             "labels": ["Crypto"]
         }
+    },
+    {
+        "condition": ["from:contains:%tenmiles%", "or", "message:contains:%tenmiles%", "or", "subject:contains:%tenmiles%"],
+        "action" : {
+            "labels": ["Tenmiles"]
+        }
     }
 ]
