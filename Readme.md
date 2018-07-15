@@ -1,20 +1,20 @@
 This project uses the GMail API to sync and enforce rules on your mails in the inbox.
 
-*Captured information from mails:*
+# Captured information from mails:
 1) Message Id [gid] (this is not queryable, and is used for identification of mails in Gmail API)
 2) Sender [From]
 3) Received time and date [received]
 4) A snippet of Message body [message]
 5) Subject [subject]
 
-*Actions supported:*
+# Actions supported:
 1) Mark mails as read
 2) Mark mails as spam
 3) Mark mails as important
 4) Add labels to mails
 5) Sync your latest mails 
 
-*Filter conditions supported:*
+# Filter conditions supported:
 1) Based on the received date/time in days, hours and minutes. 
     a) Lesser than a date/time in d| h | m. [lt]
     b) Greater than a date/time in d | h | m. [gt]
@@ -22,13 +22,13 @@ This project uses the GMail API to sync and enforce rules on your mails in the i
 3) Checking contains in any of the captured keys. [contains] (The user is responsible to add wildcards appropriately in conditions)
 4) Checking for negation of a condition. [not]
 
-*Piping conditions:*
+# Piping conditions:
 The conditions can be piped using these operators:
 1) AND
 2) OR
 3) NOT
 
-*Example condtion:*
+# Example condtion:
 {
 "condition" : ["from:contains:%tenmiles%", "AND", "message:contains:%interview%"],
 "action" : {
@@ -36,13 +36,13 @@ The conditions can be piped using these operators:
   }
 }
 
-*Rules format:*
+# Rules format:
 -> "condition" and "action" are required fields.
 -> contains filter is case insensitive.
 -> lesser (lt) than and greater than (gt) go with received key only.
 -> Piping conditions must exist appropriately in the chain.
 
-*Runing the application*
+# Runing the application
 1) ```pip install -r requirements.txt```
 2) Navigate to Application folder.
 3) ```python action.py```
