@@ -19,7 +19,7 @@ class GmailAPI:
     def get_credentials(self):
         creds = store.get()
         if not creds or creds.invalid:
-            flow = client.flow_from_clientsecrets('credentials/client_secret.json', SCOPES)
+            flow = client.flow_from_clientsecrets('../credentials/client_secret.json', SCOPES)
             creds = tools.run_flow(flow, store)
         self.service = build('gmail', 'v1', http=creds.authorize(Http()))
 
