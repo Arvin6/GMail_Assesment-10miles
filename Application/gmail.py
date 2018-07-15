@@ -41,7 +41,7 @@ class GmailAPI:
             message_id_list.extend(result['messages'])
             pages -= 1
         
-        print ("{} mails are being synced to Database".format(len(message_id_list)))
+        print ("{} mails are to be synced to Database".format(len(message_id_list)))
         message_id_list = map(lambda x: x['id'], message_id_list)
         return message_id_list
 

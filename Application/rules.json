@@ -6,6 +6,12 @@
         }
     },
     {
+        "condition": ["received:contains:2018-07-14%"],
+        "action": {
+            "labels": ["14th"]
+        }
+    },
+    {
         "condition": ["received:lt:3d", "AND", "received:gt:2d"],
         "action": {
             "labels": ["Recent"]

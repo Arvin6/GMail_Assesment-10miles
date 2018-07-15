@@ -76,12 +76,14 @@ def get_key(key):
         return Mail.message
     return None
 
+
 def validate_fields(key=None, comparison=None, value=None):
     valid_key = get_key(key)
-    if value and valid_key and comparison:
+    if re.search("[A-Za-z0-9]",value) and valid_key and comparison:
         return valid_key, comparison, value
     raise Exception("Invalid format \"{key}:{operator}:{value}\""
                                 .format(key=key,value=value,operator=comparison))
+
 
 def get_iso_for_delta(value):
     number = int(value[:-1])
@@ -112,9 +114,6 @@ def get_clause_list(condition_list):
                 value = get_iso_for_delta(value)
                 clause_list.append (key > value)
             elif comparison == "gt" and condition_split[0] == "received":
-                value = get_iso_for_delta(value)
-                clause_list.append (key < value)
-            elif comparison == "on" and condition_split[0] == "received":
                 value = get_iso_for_delta(value)
                 clause_list.append (key < value)
             else:
