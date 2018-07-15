@@ -29,12 +29,14 @@ The conditions can be piped using these operators:
 3) NOT
 
 # Example condtion:
+```json
 {
 "condition" : ["from:contains:%tenmiles%", "AND", "message:contains:%interview%"],
 "action" : {
   "mark_as_imiportant" : true
   }
 }
+```
 
 # Rules format:
 -> "condition" and "action" are required fields.
@@ -48,3 +50,6 @@ The conditions can be piped using these operators:
 3) ```python action.py```
 4) Fill in the rules in rules.json file.
 5) Enter (y/n) for the prompt to sync mails (Enter "y" for the first run). This is required to populate the DB initially(2000 mails).
+
+# Other info
+1) Added a client_secret (from a testing account) for testing purposes. This will be removed in 3 days.
