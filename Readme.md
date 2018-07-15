@@ -39,10 +39,10 @@ The conditions can be piped using these operators:
 ```
 
 # Rules format:
--> "condition" and "action" are required fields.
--> contains filter is case insensitive.
--> lesser (lt) than and greater than (gt) go with received key only.
--> Piping conditions must exist appropriately in the chain.
+1) "condition" and "action" are required fields.
+2) contains filter is case insensitive.
+3) lesser (lt) than and greater than (gt) go with received key only.
+4) Piping conditions must exist appropriately in the chain.
 
 # Runing the application
 1) ```pip install -r requirements.txt```
@@ -52,4 +52,4 @@ The conditions can be piped using these operators:
 5) Enter (y/n) for the prompt to sync mails (Enter "y" for the first run). This is required to populate the DB initially(2000 mails).
 
 # Other info
-1) Added a client_secret (from a testing account) for testing purposes. This will be removed in 3 days.
+1) Added a client_secret (from a testing account) for testing purposes. However this is an awful practice and this will be removed in 3 days.
